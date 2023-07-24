@@ -1,0 +1,8 @@
+{
+    "sim_start_year": 2020,
+    "sim_end_year": 2066,
+    "decarb_scenario": "hybrid_npa",
+    "replacement_year": 2025,
+    "buildings_config_filepath": "./config_files/buildings/configs/holyoke_mf_hybridnpa.json",
+    "utility_network_config_filepath": "./config_files/utility_network/configs/holyoke_mf_network.json"
+}
