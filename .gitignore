@@ -1,0 +1,17 @@
+# Notebooks
+.ipynb_checkpoints/
+
+# OS Artifacts
+.DS_Store
+
+# IDE files
+.vscode/
+
+# pycache
+__pycache__/
+
+# outputs
+outputs*
+
+# Environments
+venv/
