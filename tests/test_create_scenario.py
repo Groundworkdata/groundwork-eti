@@ -20,7 +20,6 @@ class TestScenarioCreator(unittest.TestCase):
     @patch("scenario_creator.create_scenario.ScenarioCreator._write_outputs")
     @patch("scenario_creator.create_scenario.ScenarioCreator._create_utility_network")
     @patch("scenario_creator.create_scenario.ScenarioCreator._create_building")
-    @patch("scenario_creator.create_scenario.ScenarioCreator._get_scenario_mapping")
     @patch("scenario_creator.create_scenario.ScenarioCreator._get_years_vec")
     @patch("scenario_creator.create_scenario.ScenarioCreator._set_outputs_path")
     @patch("scenario_creator.create_scenario.ScenarioCreator._get_decarb_scenario")
@@ -31,7 +30,6 @@ class TestScenarioCreator(unittest.TestCase):
         mock_get_decarb_scenario: Mock,
         mock_set_outputs_path: Mock,
         mock_get_years_vec: Mock,
-        mock_get_scenario_mapping: Mock,
         mock_create_building: Mock,
         mock_create_utility_network: Mock,
         mock_write_outputs: Mock,
@@ -52,7 +50,6 @@ class TestScenarioCreator(unittest.TestCase):
         self.assertEqual(self.scenario_creator._outputs_path, "outputs_path")
         mock_get_years_vec.assert_called_once()
         self.assertListEqual(self.scenario_creator._years_vec, [1, 2, 3])
-        mock_get_scenario_mapping.assert_called_once()
         mock_create_building.assert_called_once()
         mock_create_utility_network.assert_called_once()
         mock_write_outputs.assert_called_once()
@@ -97,17 +94,6 @@ class TestScenarioCreator(unittest.TestCase):
             self.scenario_creator._get_years_vec()
         )
 
-    def test_get_scenario_mapping(self):
-        self.scenario_creator._get_scenario_mapping()
-
-        with open("./config_files/scenario_mapping.json") as f:
-            expected = json.load(f)
-
-        self.assertListEqual(
-            self.scenario_creator._scenario_mapping,
-            expected
-        )
-
     @patch("scenario_creator.create_scenario.Building")
     def test_create_building(self, mock_building: Mock):
         mock_building_instance = Mock()
@@ -117,15 +103,11 @@ class TestScenarioCreator(unittest.TestCase):
             "buildings_config_filepath": "./tests/input_data/building_config.json"
         }
 
-        self.scenario_creator._scenario_mapping = "mapping"
-
         self.scenario_creator._create_building()
 
         expected_config = [{
             "building_id": "building001",
-            "resstock_id": 1,
             "retrofit_year": 2027,
-            "resstock_metadata": "resstock_metadata",
             "end_uses": [
                 {
                     "end_use": "stove",
@@ -143,8 +125,7 @@ class TestScenarioCreator(unittest.TestCase):
 
         mock_building.assert_called_once_with(
             expected_config[0],
-            {"buildings_config_filepath": "./tests/input_data/building_config.json"},
-            "mapping"
+            {"buildings_config_filepath": "./tests/input_data/building_config.json"}
         )
 
         mock_building_instance.populate_building.assert_called_once()

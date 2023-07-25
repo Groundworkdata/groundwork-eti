@@ -17,7 +17,6 @@ DEFAULT_SIM_END_YEAR = 2050
 
 FUELS = ["electricity", "natural_gas", "propane", "fuel_oil"]
 
-SCENARIO_MAPPING_FILEPATH = "./config_files/scenario_mapping.json"
 OUTPUTS_BASEPATH = "./outputs_combined/scenarios"
 
 DOMAIN_BUILDING = "building"
@@ -72,7 +71,6 @@ class ScenarioCreator:
         self._decarb_scenario: str = ""
         self._outputs_path: str = ""
         self._years_vec: List[int] = []
-        self._scenario_mapping: List[dict] = []
         self._buildings_config: dict = {}
 
         self.buildings: Dict[str, Building] = {}
@@ -83,10 +81,9 @@ class ScenarioCreator:
         self._decarb_scenario = self._get_decarb_scenario()
         self._outputs_path = self._set_outputs_path()
         self._years_vec = self._get_years_vec()
-        self._get_scenario_mapping()
         print("Creating buildings...")
         self._create_building()
-        print("Creatingy utility network...")
+        print("Creating utility network...")
         self._create_utility_network()
         self._write_outputs()
         self._get_utility_network_outputs()
@@ -128,14 +125,6 @@ class ScenarioCreator:
             self._sim_config.get("sim_end_year", DEFAULT_SIM_END_YEAR)
         ))
 
-    def _get_scenario_mapping(self) -> None:
-        """
-        Read in ResStock scenario mapping
-        """
-        with open(SCENARIO_MAPPING_FILEPATH) as f:
-            data = json.load(f)
-        self._scenario_mapping = data
-
     def _create_building(self) -> None:
         building_config_filepath = self._sim_config.get("buildings_config_filepath")
 
@@ -152,8 +141,7 @@ class ScenarioCreator:
             print("Creating building {}".format(building_params.get("building_id")))
             building = Building(
                 building_params,
-                self._sim_config,
-                self._scenario_mapping
+                self._sim_config
             )
 
             building.populate_building()
@@ -469,7 +457,7 @@ class ScenarioCreator:
 
         # ---Building utility costs---
         building_util_costs = {
-            building_id: building._calc_building_utility_costs()
+            building_id: building.calc_building_utility_costs()
             for building_id, building in self.buildings.items()
         }
 
