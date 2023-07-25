@@ -1,7 +1,6 @@
 """
 Contains tests for the Stove end use
 """
-import json
 import unittest
 
 import pandas as pd
@@ -12,7 +11,6 @@ from end_uses.building_end_uses.stove import Stove
 class TestStoveIntegration(unittest.TestCase):
     def setUp(self):
         self.energy_source = "natural_gas"
-        self.resstock_consumptions = {}
 
         self.custom_baseline_consump = pd.DataFrame({
             "out.electricity.range_oven.energy_consumption": {0: 0, 1: 0, 2: 1, 3: 0},
@@ -24,7 +22,6 @@ class TestStoveIntegration(unittest.TestCase):
             "out.electricity.other.energy_consumption": {0: 0, 1: 5, 2: 1, 3: 1000},
         })
 
-        scenario = 4
         years_vec = [0, 1, 2, 3]
 
         kwargs = {
@@ -38,14 +35,9 @@ class TestStoveIntegration(unittest.TestCase):
         }
 
         self.stove = Stove(
-            self.energy_source,
-            {},
-            [],
-            scenario,
-            {},
             years_vec,
-            custom_baseline_energy=self.custom_baseline_consump,
-            custom_retrofit_energy=self.custom_retrofit_consump,
+            self.custom_baseline_consump,
+            self.custom_retrofit_consump,
             **kwargs
         )
 

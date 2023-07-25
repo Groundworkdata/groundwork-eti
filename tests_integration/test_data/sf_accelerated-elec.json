@@ -1,7 +1,6 @@
 [
     {
         "building_id": "F_714592_2938902",
-        "resstock_id": -1,
         "retrofit_year": 2025,
         "parcel_id": "F_714592_2938902",
         "original_fuel_type": "natural_gas",
@@ -12,7 +11,6 @@
                 "existing_type": "LEGACY.STOVE",
                 "replacement_type": "WHOLE.STOVE",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2008,
                 "replacement_year": 2025,
@@ -24,7 +22,6 @@
                 "existing_type": "LEGACY.DRYER",
                 "replacement_type": "WHOLE.DRYER",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2008,
                 "replacement_year": 2025,
@@ -36,7 +33,6 @@
                 "existing_type": "LEGACY.DHW",
                 "replacement_type": "WHOLE.DHW",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2008,
                 "replacement_year": 2025,
@@ -48,7 +44,6 @@
                 "existing_type": "LEGACY.HVAC",
                 "replacement_type": "WHOLE.HVAC",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2008,
                 "replacement_year": 2025,
@@ -64,7 +59,6 @@
                 "large": 3886
             }
         },
-        "resstock_metadata": {},
         "resstock_overwrite": true,
         "reference_consump_filepath": "./config_files/buildings/energy_consumption/SF_Existing_GAS.csv",
         "retrofit_consump_filepath": "./config_files/buildings/energy_consumption/SF_Whole-HighEff-noEncl_ELEC.csv",
@@ -75,7 +69,6 @@
     },
     {
         "building_id": "F_714723_2938816",
-        "resstock_id": -1,
         "retrofit_year": 2040,
         "parcel_id": "F_714723_2938816",
         "original_fuel_type": "fuel_oil",
@@ -86,7 +79,6 @@
                 "existing_type": "LEGACY.STOVE",
                 "replacement_type": "WHOLE.STOVE",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2017,
                 "replacement_year": 2100,
@@ -98,7 +90,6 @@
                 "existing_type": "LEGACY.DRYER",
                 "replacement_type": "WHOLE.DRYER",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2017,
                 "replacement_year": 2100,
@@ -110,7 +101,6 @@
                 "existing_type": "LEGACY.DHW",
                 "replacement_type": "WHOLE.DHW",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2017,
                 "replacement_year": 2040,
@@ -122,7 +112,6 @@
                 "existing_type": "LEGACY.HVAC",
                 "replacement_type": "WHOLE.HVAC",
                 "size": "MEDIUM",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2017,
                 "replacement_year": 2040,
@@ -138,7 +127,6 @@
                 "large": 3886
             }
         },
-        "resstock_metadata": {},
         "resstock_overwrite": true,
         "reference_consump_filepath": "./config_files/buildings/energy_consumption/SF_Existing_OIL.csv",
         "retrofit_consump_filepath": "./config_files/buildings/energy_consumption/SF_Whole-HighEff-noEncl_ELEC.csv",
@@ -149,7 +137,6 @@
     },
     {
         "building_id": "F_714815_2939003",
-        "resstock_id": -1,
         "retrofit_year": 2025,
         "parcel_id": "F_714815_2939003",
         "original_fuel_type": "natural_gas",
@@ -160,7 +147,6 @@
                 "existing_type": "LEGACY.STOVE",
                 "replacement_type": "WHOLE.STOVE",
                 "size": "SMALL",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2022,
                 "replacement_year": 2025,
@@ -172,7 +158,6 @@
                 "existing_type": "LEGACY.DRYER",
                 "replacement_type": "WHOLE.DRYER",
                 "size": "SMALL",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2022,
                 "replacement_year": 2025,
@@ -184,7 +169,6 @@
                 "existing_type": "LEGACY.DHW",
                 "replacement_type": "WHOLE.DHW",
                 "size": "SMALL",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2022,
                 "replacement_year": 2025,
@@ -196,7 +180,6 @@
                 "existing_type": "LEGACY.HVAC",
                 "replacement_type": "WHOLE.HVAC",
                 "size": "SMALL",
-                "original_energy_source": "",
                 "replacement_cost_dollars_year": 2022,
                 "existing_install_year": 2022,
                 "replacement_year": 2025,
@@ -212,7 +195,6 @@
                 "large": 3886
             }
         },
-        "resstock_metadata": {},
         "resstock_overwrite": true,
         "reference_consump_filepath": "./config_files/buildings/energy_consumption/SF_Existing_GAS.csv",
         "retrofit_consump_filepath": "./config_files/buildings/energy_consumption/SF_Whole-HighEff-noEncl_ELEC.csv",

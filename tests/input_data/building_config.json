@@ -1,9 +1,7 @@
 [
     {
         "building_id": "building001",
-        "resstock_id": 1,
         "retrofit_year": 2027,
-        "resstock_metadata": "resstock_metadata",
         "end_uses": [
             {
                 "end_use": "stove",
