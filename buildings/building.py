@@ -1,6 +1,7 @@
 """
 Object for simulating a single building, accounting for energy, emissions, and costs
 """
+import os
 from typing import Dict, List
 
 import numpy as np
@@ -714,6 +715,11 @@ class Building:
             freq = 15
 
         resample_string = "{}T".format(freq)
+
+        output_dir = "./outputs/"
+
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
 
         self.baseline_consumption.resample(resample_string).sum().to_csv(
             "./outputs/{}_baseline_consump.csv".format(self.building_id)

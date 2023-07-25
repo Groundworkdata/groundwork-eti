@@ -221,6 +221,10 @@ class ScenarioCreator:
             all_dfs.append(df)
 
         all_dfs = pd.concat(all_dfs)
+
+        if not os.path.exists(self._outputs_path):
+            os.makedirs(self._outputs_path)
+            
         all_dfs.to_csv(os.path.join(self._outputs_path, "is_retrofit_vec_table.csv"), index=False)
 
         # ---Retrofit year---

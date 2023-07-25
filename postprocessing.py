@@ -36,6 +36,9 @@ def main():
 
     output_dir = "./outputs_combined/scenarios/combined/"
 
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
     for f in output_files:
         output_dfs = []
         for scenario in scenarios:

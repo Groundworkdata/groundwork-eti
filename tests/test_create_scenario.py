@@ -2,6 +2,7 @@
 Unit tests for ScenarioCreator class
 """
 import json
+import os
 import unittest
 from unittest.mock import Mock, patch
 
@@ -87,7 +88,7 @@ class TestScenarioCreator(unittest.TestCase):
 
         self.assertEqual(
             self.scenario_creator._set_outputs_path(),
-            "./outputs_combined/scenarios/hybrid_gas"
+            os.path.join("./outputs_combined/scenarios", "hybrid_gas")
         )
 
     def test_get_years_vec(self):
