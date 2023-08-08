@@ -1,10 +1,10 @@
 # Groundwork ETI Model
-This tool was developed by Groundwork Data in conjunction with the University of Massachusetts Energy Transition Institute (ETI) to "evaluate costs, emissions, and infrastructure changes as a result of specific scenarios applied to connected buildings or the distribution systems." (See the Statement of Work for more details) This tool was then used to conduct scenario analyses on two street segments. The inputs for these analyses can be found in the repository and the results are communicated in the associated project report.
+This tool was developed by Groundwork Data in conjunction with the University of Massachusetts Energy Transition Institute (ETI) to "evaluate costs, emissions, and infrastructure changes as a result of specific scenarios applied to connected buildings or the distribution systems." This tool was then used to conduct scenario analyses on two street segments. The inputs for these analyses can be found in the repository and the results are communicated in the associated project report.
 
 ## More about the tool
-The Groundwork ETI model is a local energy asset planning (LEAP) simulation tool. The user provides a number of configuration files describing the makeup, energy consumption, and assumed intervention costs along a street. The tool then executes a given intervention scenario and reports annual indicators including total system costs, peak energy consumption, and emissions, among others.
+The Groundwork ETI model is a local energy asset planning (LEAP) simulation tool. The user provides a number of configuration files describing the makeup, energy consumption, and assumed intervention costs along a street. The tool then executes a given intervention scenario and reports annual indicators, including total system costs, peak energy consumption, and emissions, among others.
 
-Interventions at individual buildings are aggregated "up" the network to account for total cost and energy consumption, at times triggering upstream interventions. For example, this can occur when all gas-consuming building assets are shutoff, triggering a shutoff of the gas service line to that building. The tool outputs a number of indicators that quantify how different intervention strategies impact costs, energy consumption patterns, and emissions.
+Interventions at individual buildings are aggregated "up" the network to account for total cost and energy consumption, sometimes triggering upstream interventions. For example, this can occur when all gas-consuming building assets are shut off, triggering a shutoff of the gas service line to that building. The tool outputs a number of indicators that quantify how different intervention strategies impact costs, energy consumption patterns, and emissions.
 
 ## Running the tool
 The model is run as a command line tool via `run.py`. Once all configuration files are created, the user can enter the following in a terminal:
@@ -15,7 +15,7 @@ where `STREET_SEGMENT` and `SCENARIO` are the street segment and energy interven
 
 Note that this is specific to the scenarios analyzed by Groundwork Data as part of the Groundwork <> ETI project deliverable. A new scenario can be defined by creating a simulation settings configuration with the file name `<STREET_SEGMENT>_<SCENARIO>_settings_config.json`. Further information on creating a new scenario is detailed below.
 
-If the user wants to investigate multiple scenarios, run each scenario individually and then run `python postprocessing.py`. This will combine output tables across scenarios for easier investigation. *In it's current implementation, the post processing script requires that all possible scenarios are executed for a given street segment; otherwise, the script will fail. Outputs from individual scenario runs can still be investigated independently.*
+If the user wants to investigate multiple scenarios, run each scenario individually and then run `python postprocessing.py`. This will combine output tables across scenarios for easier investigation. *In its current implementation, the post-processing script requires that all possible scenarios are executed for a given street segment; otherwise, the script will fail. Outputs from individual scenario runs can still be investigated independently.*
 
 ### Outputs
 All output tables are written to CSVs, which can be utilized for further investigation. The output tables are as follows:
