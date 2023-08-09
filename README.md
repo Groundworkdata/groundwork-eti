@@ -30,26 +30,26 @@ All output tables are written to CSVs, which can be utilized for further investi
 * `peak_consump`: The annual peak consumption at electric transformers based on downstream energy consumption at connected buildings.
 * `retrofit_cost`: The annual cost of retrofitting an asset.
 * `retrofit_year`: Similar to the `is_retrofit_vec_table`, except this vector is only `True` in the asset's retrofit year.
-* `stranded_val`: The stranded value of an asset in a given year if it is retrofit prior to the end of its useful life (before it fully depreciates).
+* `stranded_val`: The stranded value of an asset in a given year if it is retrofit before the end of its useful life (before it fully depreciates).
 
 ## Running the provided scenarios
 This repository includes all input values for simulating the scenarios detailed in Groundwork Data's project report. There are two street segments, a multifamily (coded `mf`) and a single-family (coded `sf`) segment. The energy intervention scenarios are coded as follows:
 * `continued_gas`: Continued use of pipeline gas and gas consumption in the building.
 * `hybrid_gas`: Hybridized heating using heat pumps with natural gas as a backup source.
-* `hybrid_gas_immediate`: Same as `hybrid_gas`, with necessary interventions occuring at all homes in 2025, rather than naturally over a longer time period.
+* `hybrid_gas_immediate`: Same as `hybrid_gas`, with necessary interventions occurring at all homes in 2025, rather than naturally over a longer time period.
 * `hybrid_npa`: Hybridized heating using heat pumps and non-pipeline gas alternatives (liquified propane gas) as backup heating fuels.
-* `natual_elec`: Full electrification of all homes connected to the gas network occuring at the end of each home appliance's end of useful life.
+* `natual_elec`: Full electrification of all homes connected to the gas network occurs at the end of each home appliance's end of useful life.
 * `accelerated_elec`: Full electrification of all homes connected to the gas network in 2025.
 
 More details on the street segments and energy intervention scenarios can be found in the project report.
 
-An example for executing the single-family hybrid NPA scenario would be the following:
+An example of executing the single-family hybrid NPA scenario would be the following:
 ```
 python run.py sf hybrid_npa
 ```
 
 ## Creating a new scenario
-Creating a scenario for the tool requires the definition of a number of configuration files related the the simulation settings, the buildings on the street segment, their energy consumption, and the utility network on the street segment.
+Creating a scenario for the tool requires the definition of a number of configuration files related the simulation settings, the buildings on the street segment, their energy consumption, and the utility network on the street segment.
 
 The simulation settings config details high-level attributes such as the start and end years of the simulation. It also defines the filepaths of the configuration files for the buildings and the utility network. The utility network configuration files define the utility assets, including how the assets are connected to one another. Some utility asset features are only defined for certain kinds of assets. For example, the configs for gas assets detail the pipe materials and lengths. Finally, the building configurations details the assets present in each building and features such as the asset install dates and install costs.
 
