@@ -22,7 +22,9 @@ def main():
     allowable_scenarios = [
         "continued_gas",
         "accelerated_elec",
+        "accelerated_elec_higheff",
         "natural_elec",
+        "natural_elec_higheff",
         "hybrid_gas",
         "hybrid_gas_immediate",
         "hybrid_npa"
@@ -33,21 +35,36 @@ def main():
             f"Street segment must be in {allowable_segments}. Received {street_segment}."
         )
     
-    if decarb_scenario not in allowable_scenarios:
+    if decarb_scenario not in [*allowable_scenarios, "all"]:
         raise ValueError(
             f"Scenario must be in {allowable_scenarios}. Received {decarb_scenario}."
         )
     
-    settings_filepath = f"./config_files/settings/{street_segment}_{decarb_scenario}_settings_config.json"
+    if decarb_scenario == "all":
+        for scenario in allowable_scenarios:
+            print(f"==========RUNNING SCENARIO {scenario}==========")
+            settings_filepath = f"./config_files/settings/{street_segment}_{scenario}_settings_config.json"
 
-    scenario = ScenarioCreator(
-        settings_filepath
-    )
+            scenario = ScenarioCreator(
+                settings_filepath
+            )
 
-    scenario.create_scenario()
+            scenario.create_scenario()
 
-    print("Buildings: {}".format(list(scenario.buildings.keys())))
-    print("==================")
+            print("Buildings: {}".format(list(scenario.buildings.keys())))
+            print("==================")
+
+    else:
+        settings_filepath = f"./config_files/settings/{street_segment}_{decarb_scenario}_settings_config.json"
+
+        scenario = ScenarioCreator(
+            settings_filepath
+        )
+
+        scenario.create_scenario()
+
+        print("Buildings: {}".format(list(scenario.buildings.keys())))
+        print("==================")
 
 if __name__ == "__main__":
     main()
